@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Transition from 'react-transition-group/Transition';
 
 import classes from "./App.css";
 import Rectangle from "./components/Rectangle/Rectangle";
@@ -34,26 +33,8 @@ class App extends Component {
         <h1>React Animations</h1>
         <Button clicked={this.onToggle}>Toggle</Button>
         <br/>
-        <Transition 
-          in={this.state.showBlock} 
-          timeout={1000}
-          mountOnEnter
-          unmountOnExit>
-          {/* {state => <p>{state}</p>} */}
-          {state => (
-            <Rectangle display={state}/>
-          )}
-        </Transition>
-        <Transition
-          mountOnEnter
-          unmountOnExit 
-          in={this.state.modalIsOpen} 
-          timeout={300}>
-          {state => (
-            <Modal show={state} closed={this.closeModal}/>
-            
-          )}
-        </Transition>
+        <Rectangle display={this.state.showBlock}/>
+        <Modal show={this.state.modalIsOpen} closed={this.closeModal}/>
         {this.state.modalIsOpen ? <Backdrop show/> : null}
         <Button clicked={this.showModal}>Open Modal</Button>
         <h3>Animating Lists</h3>
