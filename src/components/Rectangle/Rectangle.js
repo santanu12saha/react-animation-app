@@ -2,12 +2,17 @@ import React from 'react';
 import classes from './Rectangle.css';
 import Transition from 'react-transition-group/Transition';
 
+const animationTiming = {
+    enter: 5000,
+    exit: 5000
+};
+
 const rectangle = (props) => {
 
     return (
         <Transition 
             in={props.display} 
-            timeout={1000}
+            timeout={animationTiming}
             mountOnEnter
             unmountOnExit>
             {state => {
