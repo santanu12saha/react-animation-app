@@ -14,7 +14,13 @@ const rectangle = (props) => {
             in={props.display} 
             timeout={animationTiming}
             mountOnEnter
-            unmountOnExit>
+            unmountOnExit
+            onEnter={() => console.log("[Rectangle Transition Component Enter]")}
+            onEntering={() => console.log("[Rectangle Transition Component Entering]")}
+            onEntered={() => console.log("[Rectangle Transition Component Entered]")}
+            onExit={() => console.log("[Rectangle Transition Component Exit]")}
+            onExiting={() => console.log("[Rectangle Transition Component Exiting]")}
+            onExited={() => console.log("[Rectangle Transition Component Exited]")}>
             {state => {
                 const cssClasses = [
                     classes.Rectangle,
